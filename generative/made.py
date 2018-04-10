@@ -32,8 +32,8 @@ class MaskedAutoencoder(generative.ImplicitGenerativeModel, metaclass=abc.ABCMet
 
     @staticmethod
     def _sample_masks(n_in: int, n_hiddens: Sequence[int], continuous: bool, context_dim: int=0):
-        # input_ordering = torch.randperm(n_in)
-        input_ordering = torch.arange(0, n_in).type(torch.LongTensor)
+        input_ordering = torch.randperm(n_in)
+        # input_ordering = torch.arange(0, n_in).type(torch.LongTensor)
         if context_dim == 0:
             connectivities = [input_ordering + 1]
         else:
